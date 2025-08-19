@@ -1,17 +1,37 @@
 import { initializeApp, cert, getApps, getApp } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import { getAuth } from "firebase-admin/auth";
-import fs from "fs";
-import path from "path";
 
-const serviceKeyPath = path.resolve(process.cwd(), "serviceKey.json");
-const serviceAccount = JSON.parse(fs.readFileSync(serviceKeyPath, "utf8"));
+let app;
 
-const firebaseConfig = {
-  credential: cert(serviceAccount),
-};
+try {
+  // Build service account config from environment variables
+  const serviceAccount = {
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+    privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
+  };
 
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+  if (
+    !serviceAccount.projectId ||
+    !serviceAccount.clientEmail ||
+    !serviceAccount.privateKey
+  ) {
+    throw new Error("Missing Firebase service account environment variables");
+  }
+
+  const firebaseConfig = {
+    credential: cert(serviceAccount),
+    databaseURL: process.env.FIREBASE_DATABASE_URL, // optional, add if you’re using RTDB
+  };
+
+  app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+  console.log("✅ Firebase Admin initialized successfully");
+} catch (error) {
+  console.error("❌ Firebase Admin initialization error:", error);
+  throw error;
+}
+
 const db = getFirestore(app);
 const auth = getAuth(app);
 

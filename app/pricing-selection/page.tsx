@@ -1,20 +1,29 @@
 "use client";
+
 import Navbar from "../components/Navbar";
 import PricingTiers from "../components/PricingTiers";
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function PricingSelectionPage() {
+function PricingSelectionContent() {
   const searchParams = useSearchParams();
+
   // Gather all company data from query params
   const companyData: Record<string, string> = {};
   searchParams.forEach((value, key) => {
     companyData[key] = value;
   });
 
+  return <PricingTiers companyData={companyData} />;
+}
+
+export default function PricingSelectionPage() {
   return (
     <div>
       <Navbar active="pricing" />
-      <PricingTiers companyData={companyData} />
+      <Suspense fallback={<div>Loading pricing...</div>}>
+        <PricingSelectionContent />
+      </Suspense>
     </div>
   );
 }

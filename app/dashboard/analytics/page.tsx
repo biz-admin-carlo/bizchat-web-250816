@@ -1,15 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import {
-  collection,
-  query,
-  where,
-  orderBy,
-  getDocs,
-  doc,
-} from "firebase/firestore";
-import { db } from "@/app/lib/firebase";
+
 import {
   ComposableMap,
   Geographies,
@@ -158,50 +150,45 @@ export default function AnalyticsPage() {
           }
 
           try {
-            // Get user data from Firestore
-            const usersRef = collection(db, "users");
-            const userQuery = query(usersRef, where("email", "==", user.email));
-            const userSnapshot = await getDocs(userQuery);
+            // Get user data from API
+            const userResponse = await fetch("/api/get-user-data", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email: user.email }),
+            });
 
-            if (userSnapshot.empty) {
-              throw new Error("User not found in database");
+            if (!userResponse.ok) {
+              throw new Error("Failed to fetch user data");
             }
 
-            const userDoc = userSnapshot.docs[0];
-            const userData = userDoc.data();
+            const userData = await userResponse.json();
+            const userInfo = userData.user;
 
             // Determine tenant ID based on user role
             let tenantId = "";
-            if (userData.role === "admin" && userData.companyId) {
-              tenantId = userData.companyId;
-            } else if (userData.tenantList && userData.tenantList.length > 0) {
-              tenantId = userData.tenantList[0];
+            if (userInfo.role === "admin" && userInfo.companyId) {
+              tenantId = userInfo.companyId;
+            } else if (userInfo.tenantList && userInfo.tenantList.length > 0) {
+              tenantId = userInfo.tenantList[0];
             }
 
             if (!tenantId) {
               throw new Error("No tenant ID found for user");
             }
 
-            // Fetch visitor logs from the subcollection
-            const visitorLogsRef = collection(
-              doc(db, "tenants", tenantId),
-              "visitorLogs"
-            );
-            const visitorLogsQuery = query(
-              visitorLogsRef,
-              orderBy("dateVisited", "desc")
-            );
-            const visitorLogsSnapshot = await getDocs(visitorLogsQuery);
-
-            const logs: VisitorLog[] = [];
-            visitorLogsSnapshot.forEach((doc) => {
-              logs.push({
-                id: doc.id,
-                ...doc.data(),
-              } as VisitorLog);
+            // Fetch visitor logs from API
+            const logsResponse = await fetch("/api/get-visitor-logs", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ tenantId }),
             });
 
-            setVisitorLogs(logs);
+            if (!logsResponse.ok) {
+              throw new Error("Failed to fetch visitor logs");
+            }
+
+            const logsData = await logsResponse.json();
+            setVisitorLogs(logsData.logs || []);
           } catch (err) {
             console.error("Error fetching visitor logs:", err);
             setError(

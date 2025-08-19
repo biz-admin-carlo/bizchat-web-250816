@@ -108,7 +108,17 @@ export default function RegistrationForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: formData.email }),
       });
+
+      if (!emailCheckResponse.ok) {
+        throw new Error(`Email check failed: ${emailCheckResponse.status}`);
+      }
+
       const emailCheckData = await emailCheckResponse.json();
+
+      if (emailCheckData.error) {
+        throw new Error(emailCheckData.error);
+      }
+
       if (emailCheckData.exists) {
         setErrors((prev) => ({
           ...prev,
