@@ -1,0 +1,36 @@
+{
+  "name": "bizchat-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@stripe/react-stripe-js": "^3.9.0",
+    "@stripe/stripe-js": "^7.8.0",
+    "firebase": "^12.0.0",
+    "firebase-admin": "^13.4.0",
+    "fusionmaps": "^4.1.0",
+    "next": "15.3.4",
+    "node-fetch": "^3.3.2",
+    "prop-types": "^15.8.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-simple-maps": "^3.0.0",
+    "stripe": "^18.4.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/node-fetch": "^2.6.13",
+    "@types/prop-types": "^15.7.15",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/react-simple-maps": "^3.0.6",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
