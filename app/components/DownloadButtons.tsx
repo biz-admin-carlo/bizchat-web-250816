@@ -51,6 +51,7 @@ export default function DownloadButtons({
     }
   };
 
+  //TODO: Add direct download for windows and mac
   const handleDirectDownload = (
     platform: "android" | "ios" | "windows" | "mac"
   ) => {
