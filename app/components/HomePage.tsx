@@ -3,6 +3,7 @@
 import Navbar from "./Navbar";
 import React, { useState } from "react";
 import Link from "next/link";
+import DownloadButtons from "./DownloadButtons";
 
 export default function HomePage() {
   const [testimonialsPaused, setTestimonialsPaused] = useState(false);
@@ -95,7 +96,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative h-full">
           <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-12 items-start relative h-full">
             {/* Left Column - Text Content */}
-            <div className="text-left z-10 self-start text-[#1C1C1C] flex-1 w-full lg:w-auto lg:text-left text-center items-center justify-center flex flex-col">
+            <div className="z-10 self-start text-[#1C1C1C] flex-1 w-full lg:w-auto lg:text-left text-center items-center justify-center flex flex-col">
               <h1 className="font-normal mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-[60px] leading-tight lg:leading-[1.1]">
                 <span className="text-orange-500">AI-Powered</span> Chat
                 <br />
@@ -107,29 +108,14 @@ export default function HomePage() {
                 From instant replies to multilingual support, BizChat helps you
                 deliver amazing customer service, everywhere.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-10 justify-center lg:justify-start">
+              <div className="flex flex-col gap-6 mb-10 justify-center lg:justify-start">
                 <Link
                   href="/features"
                   className="border-2 border-gray-300 text-gray-900 font-semibold rounded-lg px-8 py-3 bg-white hover:bg-gray-50 transition-colors text-lg text-center"
                 >
                   Learn More
                 </Link>
-                <button className="flex items-center justify-center gap-2 bg-red-500 text-white font-semibold rounded-lg px-8 py-3 hover:bg-red-600 transition-colors text-lg">
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"
-                    />
-                  </svg>
-                  Download BizChat
-                </button>
+                <DownloadButtons className="justify-center lg:justify-start" />
               </div>
               <div className="flex items-center gap-8 justify-center lg:justify-start">
                 {/* Avatars and Satisfied Customers */}
