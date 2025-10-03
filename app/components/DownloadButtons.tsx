@@ -21,8 +21,8 @@ export default function DownloadButtons({
     android:
       "https://play.google.com/store/apps/details?id=com.bizsolutions.bizchat",
     ios: "https://apps.apple.com/ph/app/bizchat-customer-support-tool/id6747104185",
-    windows: "coming-soon",
-    mac: "coming-soon",
+    windows: "/BizChatInstaller.zip",
+    mac: "/BizChat.dmg",
   };
 
   const generateQRCode = async (url: string) => {
@@ -44,6 +44,12 @@ export default function DownloadButtons({
   const handleDownloadClick = (
     platform: "android" | "ios" | "windows" | "mac"
   ) => {
+    if (platform === "mac" || platform === "windows") {
+      // Direct download for Mac and Windows
+      window.open(appUrls[platform], "_blank");
+      return;
+    }
+
     setSelectedPlatform(platform);
     setShowModal(true);
     if (platform === "android" || platform === "ios") {
@@ -51,7 +57,6 @@ export default function DownloadButtons({
     }
   };
 
-  //TODO: Add direct download for windows and mac
   const handleDirectDownload = (
     platform: "android" | "ios" | "windows" | "mac"
   ) => {
