@@ -21,8 +21,8 @@ export default function DownloadButtons({
     android:
       "https://play.google.com/store/apps/details?id=com.bizsolutions.bizchat",
     ios: "https://apps.apple.com/ph/app/bizchat-customer-support-tool/id6747104185",
-    windows: "/BizChatInstaller.zip",
-    mac: "/BizChat.dmg",
+    windows: "/BizChatInstaller-v1.0.1.zip",
+    mac: "/bizchat_v1.0.1.dmg",
   };
 
   const generateQRCode = async (url: string) => {
