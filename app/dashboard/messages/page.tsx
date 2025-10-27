@@ -159,6 +159,9 @@ export default function MessagesPage() {
   const [selectedConvId, setSelectedConvId] = useState<string | null>(null);
   const [threads, setThreads] = useState<any[]>([]);
   const [loadingThreads, setLoadingThreads] = useState(false);
+  const [customerModalOpen, setCustomerModalOpen] = useState(false);
+  const [selectedCustomer, setSelectedCustomer] =
+    useState<ConversationRow | null>(null);
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -179,6 +182,16 @@ export default function MessagesPage() {
   const closeMessages = () => {
     setSelectedConvId(null);
     setThreads([]);
+  };
+
+  const openCustomerModal = (customer: ConversationRow) => {
+    setSelectedCustomer(customer);
+    setCustomerModalOpen(true);
+  };
+
+  const closeCustomerModal = () => {
+    setCustomerModalOpen(false);
+    setSelectedCustomer(null);
   };
 
   useEffect(() => {
@@ -439,6 +452,9 @@ export default function MessagesPage() {
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Raw
               </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Customer Info
+              </th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
@@ -544,6 +560,30 @@ export default function MessagesPage() {
                         </button>
                       </div>
                     )}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-xs text-gray-900">
+                    <button
+                      className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openCustomerModal(conv);
+                      }}
+                    >
+                      <svg
+                        className="w-4 h-4 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                        />
+                      </svg>
+                      View Info
+                    </button>
                   </td>
                 </tr>
               ))
@@ -691,6 +731,175 @@ export default function MessagesPage() {
           )}
         </div>
       </div>
+
+      {/* Customer Information Modal */}
+      {customerModalOpen && selectedCustomer && (
+        <div className="fixed inset-0 z-50 overflow-y-auto">
+          <div className="flex min-h-screen items-center justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <div
+              className="fixed inset-0 bg-opacity-20 backdrop-blur-md"
+              onClick={closeCustomerModal}
+            ></div>
+
+            <div className="relative inline-block transform overflow-hidden rounded-lg bg-transparent text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle">
+              <button
+                className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 text-2xl font-bold px-2 z-10"
+                onClick={closeCustomerModal}
+                aria-label="Close modal"
+              >
+                &times;
+              </button>
+              <div className="bg-white bg-opacity-90 backdrop-blur-sm px-4 pt-5 pb-4 sm:p-6 sm:pb-4 rounded-lg">
+                <div className="sm:flex sm:items-start">
+                  <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-orange-100 sm:mx-0 sm:h-10 sm:w-10">
+                    <svg
+                      className="h-6 w-6 text-orange-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                      />
+                    </svg>
+                  </div>
+                  <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                    <h3 className="text-lg font-medium leading-6 text-gray-900 mb-4">
+                      Customer Information
+                    </h3>
+                    <div className="space-y-3">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Chat ID
+                        </label>
+                        <p className="mt-1 text-sm text-gray-900">
+                          {selectedCustomer.customerName ||
+                            selectedCustomer.userName ||
+                            selectedCustomer.customer ||
+                            selectedCustomer.user ||
+                            "N/A"}
+                        </p>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Full Name
+                        </label>
+                        <p className="mt-1 text-sm text-gray-900">
+                          {(selectedCustomer as any).customerFullName || "N/A"}
+                        </p>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Phone
+                        </label>
+                        <p className="mt-1 text-sm text-gray-900">
+                          {(selectedCustomer as any).customerPhone || "N/A"}
+                        </p>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Email
+                        </label>
+                        <p className="mt-1 text-sm text-gray-900">
+                          {(selectedCustomer as any).customerEmail || "N/A"}
+                        </p>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Conversation ID
+                        </label>
+                        <p className="mt-1 text-sm text-gray-900 font-mono">
+                          {selectedCustomer.id}
+                        </p>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Author Type
+                        </label>
+                        <p className="mt-1 text-sm text-gray-900">
+                          {selectedCustomer.authorType || "N/A"}
+                        </p>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Assigned Support
+                        </label>
+                        <p className="mt-1 text-sm text-gray-900">
+                          {selectedCustomer.acceptedBy ? (
+                            supportNames[selectedCustomer.acceptedBy] ||
+                            "Loading..."
+                          ) : (
+                            <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">
+                              Inquiry
+                            </span>
+                          )}
+                        </p>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Created At
+                        </label>
+                        <p className="mt-1 text-sm text-gray-900">
+                          {(() => {
+                            if (!selectedCustomer.createdAt) return "N/A";
+                            if (
+                              typeof selectedCustomer.createdAt.toDate ===
+                              "function"
+                            ) {
+                              return selectedCustomer.createdAt
+                                .toDate()
+                                .toLocaleString();
+                            }
+                            if (
+                              typeof selectedCustomer.createdAt === "object" &&
+                              typeof selectedCustomer.createdAt._seconds ===
+                                "number"
+                            ) {
+                              return new Date(
+                                selectedCustomer.createdAt._seconds * 1000
+                              ).toLocaleString();
+                            }
+                            if (
+                              typeof selectedCustomer.createdAt === "string" ||
+                              typeof selectedCustomer.createdAt === "number"
+                            ) {
+                              const d = new Date(selectedCustomer.createdAt);
+                              return isNaN(d.getTime())
+                                ? "N/A"
+                                : d.toLocaleString();
+                            }
+                            return "N/A";
+                          })()}
+                        </p>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Last Message
+                        </label>
+                        <p className="mt-1 text-sm text-gray-900">
+                          {selectedCustomer.latestMessage || "N/A"}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white bg-opacity-90 backdrop-blur-sm px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 rounded-lg">
+                <button
+                  type="button"
+                  className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                  onClick={closeCustomerModal}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
