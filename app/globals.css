@@ -28,3 +28,87 @@ body {
 .font-prata {
   font-family: "Prata", serif;
 }
+
+/* Override chat widget styles that interfere with buttons */
+/* Prevent chat widget from setting 40px width on ALL buttons */
+/* button {
+  width: auto !important;
+  height: auto !important;
+  bottom: auto !important;
+  right: auto !important;
+  position: relative !important;
+  min-width: auto !important;
+} */
+
+/* Fix for all buttons - override chat widget's mobile styles */
+@media (max-width: 600px) {
+  /* button {
+    height: auto !important;
+    bottom: auto !important;
+    right: auto !important;
+    position: relative !important;
+    width: auto !important;
+    min-width: auto !important;
+  } */
+}
+
+/* Override chat widget styles that interfere with download buttons */
+.download-buttons-container,
+.download-buttons-container button {
+  width: 100% !important;
+  height: auto !important;
+  bottom: auto !important;
+  right: auto !important;
+  position: relative !important;
+  min-width: 0 !important;
+}
+
+/* Exempt Compare Pricing button from chat widget's 40px width restriction */
+.compare-pricing-button {
+  width: auto !important;
+  height: auto !important;
+  bottom: auto !important;
+  right: auto !important;
+  position: relative !important;
+  min-width: auto !important;
+}
+
+/* Exempt Login button from chat widget's 40px width restriction */
+.login-button {
+  width: 100% !important;
+  height: auto !important;
+  bottom: auto !important;
+  right: auto !important;
+  position: relative !important;
+  min-width: auto !important;
+}
+
+/* Exempt mobile nav buttons (Logout, Manage Team, Login) from chat widget's 40px width restriction */
+.nav-mobile-button {
+  width: auto !important;
+  height: auto !important;
+  bottom: auto !important;
+  right: auto !important;
+  position: relative !important;
+  min-width: auto !important;
+}
+
+/* Exempt Contact US button from chat widget's 40px width restriction */
+.contact-us-button {
+  width: auto !important;
+  height: auto !important;
+  bottom: auto !important;
+  right: auto !important;
+  position: relative !important;
+  min-width: auto !important;
+}
+
+/* Exempt Contact page buttons (Request a Demo, Submit) from chat widget's 40px width restriction */
+.contact-page-button {
+  width: auto !important;
+  height: auto !important;
+  bottom: auto !important;
+  right: auto !important;
+  position: relative !important;
+  min-width: auto !important;
+}

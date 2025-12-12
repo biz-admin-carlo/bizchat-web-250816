@@ -156,7 +156,7 @@ export default function FaqsPage() {
           Reach out to us anytime and we’ll get back to you as soon as possible.
         </p>
         <div className="flex flex-row items-center justify-center gap-2 md:gap-4 mt-2">
-          <button className="bg-red-500 text-white font-semibold rounded-lg px-8 py-3 hover:bg-red-600 transition-colors text-lg z-10">
+          <button className="contact-us-button bg-red-500 text-white font-semibold rounded-lg px-8 py-3 hover:bg-red-600 transition-colors text-lg z-10">
             Contact US
           </button>
           <img

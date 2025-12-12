@@ -243,21 +243,21 @@ export default function Navbar({ active = "home" }: { active?: string }) {
               Features
             </Link>
             <Link
-              href="#pricing"
+              href="/pricing"
               className="text-gray-700 text-lg font-semibold"
               onClick={() => setMobileMenuOpen(false)}
             >
               Pricing
             </Link>
             <Link
-              href="#faqs"
+              href="/faqs"
               className="text-gray-700 text-lg font-semibold"
               onClick={() => setMobileMenuOpen(false)}
             >
               FAQ
             </Link>
             <Link
-              href="#contact"
+              href="/contact"
               className="text-gray-700 text-lg font-semibold"
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -276,7 +276,7 @@ export default function Navbar({ active = "home" }: { active?: string }) {
               <>
                 <Link
                   href="/dashboard"
-                  className="border border-orange-600 text-orange-600 px-6 py-2 rounded-lg hover:bg-orange-50 transition-colors text-lg font-semibold"
+                  className="nav-mobile-button border border-orange-600 text-orange-600 px-6 py-2 rounded-lg hover:bg-orange-50 transition-colors text-lg font-semibold"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Manage Team
@@ -286,7 +286,7 @@ export default function Navbar({ active = "home" }: { active?: string }) {
                     setMobileMenuOpen(false);
                     handleLogout();
                   }}
-                  className="border border-orange-600 text-orange-600 px-6 py-2 rounded-lg hover:bg-orange-50 transition-colors text-lg font-semibold"
+                  className="nav-mobile-button border border-orange-600 text-orange-600 px-6 py-2 rounded-lg hover:bg-orange-50 transition-colors text-lg font-semibold"
                 >
                   Logout
                 </button>
@@ -294,7 +294,7 @@ export default function Navbar({ active = "home" }: { active?: string }) {
             ) : (
               <Link
                 href="/login"
-                className="border border-orange-600 text-orange-600 px-6 py-2 rounded-lg hover:bg-orange-50 transition-colors text-lg font-semibold"
+                className="nav-mobile-button border border-orange-600 text-orange-600 px-6 py-2 rounded-lg hover:bg-orange-50 transition-colors text-lg font-semibold"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Login

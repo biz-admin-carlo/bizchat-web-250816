@@ -92,66 +92,77 @@ export default function HomePage() {
       <div className="h-16"></div>
 
       {/* Hero Section */}
-      <section className="bg-white py-20 ">
+      <section className="bg-white py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative h-full">
-          <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-12 items-start relative h-full">
-            {/* Left Column - Text Content */}
-            <div className="z-10 self-start text-[#1C1C1C] flex-1 w-full lg:w-auto lg:text-left text-center items-center justify-center flex flex-col">
-              <h1 className="font-normal mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-[60px] leading-tight lg:leading-[1.1]">
+          <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-8 sm:gap-12 items-start relative h-full">
+            {/* Left Column */}
+            <div className="z-10 text-[#1C1C1C] flex-1 w-full lg:w-auto lg:text-left text-center flex flex-col">
+              <h1 className="font-normal mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-[60px] leading-tight lg:leading-[1.1]">
                 <span className="text-orange-500">AI-Powered</span> Chat
                 <br />
                 Support. Built for
                 <br />
                 <span className="text-red-500">Business.</span>
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-[#1C1C1C] mb-8">
+
+              <p className="text-base sm:text-lg md:text-xl text-[#1C1C1C] mb-6 sm:mb-8">
                 From instant replies to multilingual support, BizChat helps you
                 deliver amazing customer service, everywhere.
               </p>
-              <div className="flex flex-col gap-6 mb-10 justify-center lg:justify-start">
+
+              {/* ⭐ FIXED BUTTON CONTAINER ⭐ */}
+              <div className="flex flex-col gap-4 sm:gap-6 mb-8 sm:mb-10 w-full min-w-0">
                 <Link
                   href="/features"
-                  className="border-2 border-gray-300 text-gray-900 font-semibold rounded-lg px-8 py-3 bg-white hover:bg-gray-50 transition-colors text-lg text-center"
+                  className="border-2 border-gray-300 text-gray-900 font-semibold rounded-lg 
+                       px-6 py-3 bg-white hover:bg-gray-50 transition-colors 
+                       text-base sm:text-lg text-center w-full"
                 >
                   Learn More
                 </Link>
-                <DownloadButtons className="justify-center lg:justify-start" />
+
+                {/* ⭐ FORCE DownloadButtons to occupy full width ⭐ */}
+                <div className="w-full  sm:mx-0 flex justify-center ">
+                  <div className="w-full">
+                    <DownloadButtons />
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-8 justify-center lg:justify-start">
-                {/* Avatars and Satisfied Customers */}
+
+              {/* Avatars + rating */}
+              <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 lg:gap-8 justify-center lg:justify-start">
                 <div className="flex items-center gap-3">
                   <div className="flex -space-x-3">
                     <img
                       src="/user1.png"
-                      alt="Customer 1"
-                      className="w-10 h-10 rounded-full border-2 border-white object-cover relative z-30"
+                      className="w-10 h-10 rounded-full border-2 border-white object-cover"
                     />
                     <img
                       src="/customer2.png"
-                      alt="Customer 2"
-                      className="w-10 h-10 rounded-full border-2 border-white object-cover relative z-20"
+                      className="w-10 h-10 rounded-full border-2 border-white object-cover"
                     />
                     <img
                       src="/customer3.png"
-                      alt="Customer 3"
-                      className="w-10 h-10 rounded-full border-2 border-white object-cover relative z-10"
+                      className="w-10 h-10 rounded-full border-2 border-white object-cover"
                     />
                   </div>
                   <div>
-                    <div className="font-bold text-2xl leading-tight">9999</div>
-                    <div className="text-[#1C1C1C] text-sm">
+                    <div className="font-bold text-xl sm:text-2xl leading-tight">
+                      9999
+                    </div>
+                    <div className="text-[#1C1C1C] text-xs sm:text-sm">
                       Satisfied Customers
                     </div>
                   </div>
                 </div>
-                {/* Rating */}
-                <div className="flex items-center gap-2 border-l border-gray-200 pl-8">
-                  <div className="font-bold text-2xl">4.9 / 5</div>
+
+                <div className="flex items-center gap-2 sm:border-l sm:border-gray-200 sm:pl-6 lg:pl-8">
+                  <div className="font-bold text-xl sm:text-2xl">4.9 / 5</div>
                   <div className="flex items-center gap-1">
                     {[...Array(5)].map((_, i) => (
                       <svg
                         key={i}
-                        className="w-5 h-5 text-yellow-400"
+                        className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -159,17 +170,19 @@ export default function HomePage() {
                       </svg>
                     ))}
                   </div>
-                  <div className="text-[#1C1C1C] text-sm ml-2">Rating</div>
+                  <div className="text-[#1C1C1C] text-xs sm:text-sm ml-1 sm:ml-2">
+                    Rating
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Column - Picture Space */}
-            <div className="relative flex justify-center self-center lg:justify-end h-full flex-1">
+            {/* RIGHT COLUMN */}
+            <div className="relative flex justify-center self-center lg:justify-end h-full flex-1 mb-4 sm:mb-0">
               <img
                 src="/hero-main.png"
                 alt="Happy user with BizChat"
-                className="w-full max-w-3xl h-[300px] sm:h-[500px] md:h-[700px] object-contain rounded-lg lg:mt-0"
+                className="w-full max-w-3xl h-[250px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-contain rounded-lg"
               />
             </div>
           </div>
@@ -492,12 +505,14 @@ export default function HomePage() {
           business. No hidden fees. No complexity. Just powerful features at a
           price that fits.
         </p>
-        <button
-          onClick={() => setShowPricingModal(true)}
-          className="bg-red-500 text-white font-semibold rounded-lg px-8 py-3 mb-16 hover:bg-red-600 transition-colors text-lg"
-        >
-          Compare Pricing
-        </button>
+        <div className="flex justify-center w-full mb-16">
+          <button
+            onClick={() => setShowPricingModal(true)}
+            className="compare-pricing-button bg-red-500 text-white font-semibold rounded-lg px-8 py-3 hover:bg-red-600 transition-colors text-lg"
+          >
+            Compare Pricing
+          </button>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center w-full max-w-6xl">
           {/* Free Card */}
           <div className="flex-1 border-2 border-gray-400 rounded-xl p-8 bg-gradient-to-br from-green-50 to-green-100 relative min-w-[320px] max-w-[400px]">

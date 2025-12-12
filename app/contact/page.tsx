@@ -8,27 +8,27 @@ export default function ContactPage() {
       <div className="h-16" />
       {/* Contact Header Section */}
       <section
-        className="w-full bg-[#191919] flex flex-col md:flex-row items-center justify-between px-6 md:px-16 lg:px-32 gap-10 md:gap-0"
+        className="w-full bg-[#191919] flex flex-col md:flex-row items-center justify-between px-6 md:px-16 lg:px-32 gap-10 md:gap-0 overflow-hidden"
         style={{ height: "300px" }}
       >
         {/* Left: Headline and Subheadline */}
         <div className="flex-1 max-w-2xl text-left">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4">
-            <span className="text-orange-500">Let’s</span>{" "}
+            <span className="text-orange-500">Let's</span>{" "}
             <span className="text-red-500">Connect</span>
           </h1>
           <p className="text-white text-base md:text-lg">
             Have a question, need support, or want to learn more about BizChat?
             Our team is here to help. Choose the option that fits best, and
-            we’ll get back to you shortly.
+            we'll get back to you shortly.
           </p>
         </div>
         {/* Right: Cropped Robot Image */}
-        <div className="flex-1 flex items-end justify-center relative h-full">
+        <div className="flex-1 flex items-end justify-center relative h-full overflow-hidden">
           <img
             src="/robo_contact.png"
             alt="BizChat Contact Robot"
-            className="h-full w-auto max-h-[300px] object-contain object-right"
+            className="h-full w-auto max-h-[300px] max-w-full object-contain object-right"
           />
         </div>
       </section>
@@ -97,7 +97,7 @@ export default function ContactPage() {
                 platform works for your business.
               </p>
               <div className="flex items-center gap-2 mt-2">
-                <button className="bg-red-500 text-white font-semibold rounded-lg px-6 py-3 hover:bg-red-600 transition-colors text-base flex items-center">
+                <button className="contact-page-button bg-red-500 text-white font-semibold rounded-lg px-6 py-3 hover:bg-red-600 transition-colors text-base flex items-center">
                   Request a Demo
                 </button>
                 <img
@@ -205,7 +205,7 @@ export default function ContactPage() {
             </div>
             <button
               type="submit"
-              className="bg-red-500 text-white font-semibold rounded-lg px-8 py-3 hover:bg-red-600 transition-colors text-lg mt-2"
+              className="contact-page-button bg-red-500 text-white font-semibold rounded-lg px-8 py-3 hover:bg-red-600 transition-colors text-lg mt-2"
             >
               Submit
             </button>
