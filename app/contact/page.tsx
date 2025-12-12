@@ -6,7 +6,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-white w-full">
       <Navbar active="contact" />
       <div className="h-16" />
-      {/* Contact Header Section */}
+      {/* Contact Header Section e*/}
       <section
         className="w-full bg-[#191919] flex flex-col md:flex-row items-center justify-between px-6 md:px-16 lg:px-32 gap-10 md:gap-0 overflow-hidden"
         style={{ height: "300px" }}
