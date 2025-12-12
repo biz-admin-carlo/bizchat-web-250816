@@ -277,9 +277,9 @@ export default function HomePage() {
       </section>
 
       {/* Designed for Simplicity Section */}
-      <section className="w-full h-[400px] flex flex-col lg:flex-row overflow-hidden">
+      <section className="w-full flex flex-col lg:flex-row overflow-hidden bg-[#191919] py-12 sm:py-16 lg:py-0 lg:h-[400px]">
         {/* Left Animated Pattern */}
-        <div className="relative flex-1 min-w-[50%] hidden lg:flex items-center justify-center overflow-visible bg-[#191919]">
+        <div className="relative flex-1 min-w-[50%] hidden lg:flex items-center justify-center overflow-visible">
           <div className="absolute w-[250%] h-[2500px] -rotate-[20deg] flex justify-center gap-2">
             {[0, 1, 2].map((col) => (
               <div
@@ -309,14 +309,14 @@ export default function HomePage() {
           </div>
         </div>
         {/* Right Text Content */}
-        <div className="flex-1 min-w-[60%] bg-[#191919] flex items-center justify-center px-8 py-12 pr-16">
-          <div className="max-w-xl">
-            <h2 className="text-4xl md:text-5xl font-semibold text-white mb-2">
+        <div className="flex-1 lg:min-w-[60%] min-w-0 flex items-center justify-center px-6 sm:px-10 lg:px-16 h-full">
+          <div className="max-w-xl text-center lg:text-left">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight">
               Designed for Simplicity.
               <br />
               <span className="text-orange-400">Powered by AI.</span>
             </h2>
-            <p className="text-white text-lg mt-6">
+            <p className="text-white text-base sm:text-lg mt-6 leading-relaxed">
               BizChat makes customer support feel effortless, from setup to
               daily use. With an intuitive interface, AI-powered suggestions,
               and seamless integration, your team can start meaningful
