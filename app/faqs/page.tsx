@@ -211,7 +211,7 @@ export default function FaqsPage() {
           <p className="text-white text-base md:text-lg">
             Can’t find what you’re looking for?{" "}
             <a
-              href="#contact"
+              href="/contact"
               className="text-orange-400 underline hover:text-orange-300"
             >
               Contact our support team
@@ -368,7 +368,7 @@ export default function FaqsPage() {
             <div className="font-bold text-lg mb-2 text-[#1C1C1C]">Help</div>
             <ul className="text-[#1C1C1C] space-y-1 text-base">
               <li>
-                <a href="#contact" className="hover:underline">
+                <a href="/contact" className="hover:underline">
                   Contact
                 </a>
               </li>

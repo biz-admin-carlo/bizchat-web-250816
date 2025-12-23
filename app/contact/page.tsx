@@ -268,7 +268,7 @@ export default function ContactPage() {
             <div className="font-bold text-lg mb-2 text-[#1C1C1C]">Help</div>
             <ul className="text-[#1C1C1C] space-y-1 text-base">
               <li>
-                <a href="#contact" className="hover:underline">
+                <a href="/contact" className="hover:underline">
                   Contact
                 </a>
               </li>

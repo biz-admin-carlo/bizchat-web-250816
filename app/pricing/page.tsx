@@ -635,7 +635,7 @@ export default function PricingPage() {
                 </a>
               </li>
               <li>
-                <a href="#faqs" className="hover:underline">
+                <a href="/faqs" className="hover:underline">
                   FAQ’s
                 </a>
               </li>
@@ -646,7 +646,7 @@ export default function PricingPage() {
             <div className="font-bold text-lg mb-2 text-[#1C1C1C]">Help</div>
             <ul className="text-[#1C1C1C] space-y-1 text-base">
               <li>
-                <a href="#contact" className="hover:underline">
+                <a href="/contact" className="hover:underline">
                   Contact
                 </a>
               </li>
