@@ -1,7 +1,47 @@
 "use client";
 import Navbar from "../components/Navbar";
+import type { FormEvent } from "react";
 
 export default function ContactPage() {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const name =
+      (form.elements.namedItem("name") as HTMLInputElement)?.value || "";
+    const email =
+      (form.elements.namedItem("email") as HTMLInputElement)?.value || "";
+    const phone =
+      (form.elements.namedItem("phone") as HTMLInputElement)?.value || "";
+    const subjectInput =
+      (form.elements.namedItem("subject") as HTMLInputElement)?.value || "";
+    const message =
+      (form.elements.namedItem("message") as HTMLTextAreaElement)?.value || "";
+
+    const subject = subjectInput || "New contact form submission";
+    const bodyLines = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      phone ? `Phone: ${phone}` : "",
+      "",
+      "Message:",
+      message,
+    ].filter(Boolean);
+
+    const mailto = `mailto:info@bizsolutions.us?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+
+    if (typeof window !== "undefined") {
+      const link = document.createElement("a");
+      link.href = mailto;
+      link.style.display = "none";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white w-full">
       <Navbar active="contact" />
@@ -111,7 +151,10 @@ export default function ContactPage() {
         </div>
         {/* Right: Contact Form */}
         <div className="flex-1 w-full max-w-2xl">
-          <form className="bg-white rounded-xl shadow-md p-8 flex flex-col gap-6">
+          <form
+            className="bg-white rounded-xl shadow-md p-8 flex flex-col gap-6"
+            onSubmit={handleSubmit}
+          >
             <div>
               <label
                 htmlFor="name"
