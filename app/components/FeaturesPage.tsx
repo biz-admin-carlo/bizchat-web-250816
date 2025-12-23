@@ -2,6 +2,7 @@
 
 import Navbar from "./Navbar";
 import Link from "next/link";
+import { FadeInSection } from "./FadeInSection";
 
 export default function FeaturesPage() {
   return (
@@ -14,7 +15,7 @@ export default function FeaturesPage() {
       {/* Header Section */}
       <section className="w-full flex flex-col md:flex-row items-center justify-between px-6 md:px-24 lg:px-40 py-16 md:py-24 gap-10 md:gap-0">
         {/* Left: Headline and Subheadline */}
-        <div className="flex-1 max-w-xl text-left">
+        <FadeInSection className="flex-1 max-w-xl text-left">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-2">
             <span className="block text-orange-500">Powerful Features,</span>
             <span className="block text-red-500">Made Simple</span>
@@ -25,9 +26,12 @@ export default function FeaturesPage() {
             platform. Whether you're handling support for one brand or multiple
             businesses, our tools are designed to scale with you.
           </p>
-        </div>
+        </FadeInSection>
         {/* Right: Robot Image and Icons */}
-        <div className="flex-1 flex items-center justify-center relative min-w-[320px] max-w-[600px] w-full">
+        <FadeInSection
+          className="flex-1 flex items-center justify-center relative min-w-[320px] max-w-[600px] w-full"
+          delay={120}
+        >
           <img
             src="/robot_features.png"
             alt="BizChat Robot Features"
@@ -76,7 +80,7 @@ export default function FeaturesPage() {
               </svg>
             </div>
           </div>
-        </div>
+        </FadeInSection>
       </section>
 
       {/* Live Chat Support Section */}
@@ -284,7 +288,7 @@ export default function FeaturesPage() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Card 1 */}
-          <div className="flex flex-col h-full rounded-md overflow-hidden border border-black shadow-sm">
+          <div className="flex flex-col h-full rounded-md overflow-hidden border border-black shadow-sm transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
             <div className="bg-white w-full h-56">
               <img
                 src="/works_with_mobile.png"
@@ -303,7 +307,7 @@ export default function FeaturesPage() {
             </div>
           </div>
           {/* Card 2 */}
-          <div className="flex flex-col h-full rounded-md overflow-hidden border border-black shadow-sm">
+          <div className="flex flex-col h-full rounded-md overflow-hidden border border-black shadow-sm transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
             <div className="bg-white w-full h-56">
               <img
                 src="/gdpr.png"
@@ -323,7 +327,7 @@ export default function FeaturesPage() {
             </div>
           </div>
           {/* Card 3 */}
-          <div className="flex flex-col h-full rounded-md overflow-hidden border border-black shadow-sm">
+          <div className="flex flex-col h-full rounded-md overflow-hidden border border-black shadow-sm transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
             <div className="bg-white w-full h-56">
               <img
                 src="/ez.png"
@@ -346,26 +350,28 @@ export default function FeaturesPage() {
 
       {/* CTA Section: Ready to see BizChat in action? */}
       <section className="w-full bg-white flex flex-col items-center justify-center py-24 px-4">
-        <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-6 text-[#191919]">
-          Ready to see BizChat in action?
-        </h2>
-        <p className="text-center text-lg text-[#1C1C1C] mb-10 max-w-2xl">
-          Discover how our powerful features come together to transform your
-          customer support. Whether you're ready to dive in or want to explore
-          your options, we’ve got you covered.
-        </p>
-        <div className="flex flex-col sm:flex-row items-center gap-4">
-          <button className="border-2 border-red-500 text-[#191919] font-semibold rounded-lg px-8 py-3 bg-white hover:bg-red-50 transition-colors text-lg mb-2 sm:mb-0">
-            Request a Demo
-          </button>
-          <span className="mx-2 font-bold text-[#191919]">OR</span>
-          <Link
-            href="/pricing"
-            className="bg-red-500 text-white font-semibold rounded-lg px-8 py-3 hover:bg-red-600 transition-colors text-lg text-center"
-          >
-            View Pricing
-          </Link>
-        </div>
+        <FadeInSection className="flex flex-col items-center">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-6 text-[#191919]">
+            Ready to see BizChat in action?
+          </h2>
+          <p className="text-center text-lg text-[#1C1C1C] mb-10 max-w-2xl">
+            Discover how our powerful features come together to transform your
+            customer support. Whether you're ready to dive in or want to explore
+            your options, we’ve got you covered.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <button className="border-2 border-red-500 text-[#191919] font-semibold rounded-lg px-8 py-3 bg-white hover:bg-red-50 hover:-translate-y-0.5 transition text-lg mb-2 sm:mb-0">
+              Request a Demo
+            </button>
+            <span className="mx-2 font-bold text-[#191919]">OR</span>
+            <Link
+              href="/pricing"
+              className="bg-red-500 text-white font-semibold rounded-lg px-8 py-3 hover:bg-red-600 hover:-translate-y-0.5 transition text-lg text-center"
+            >
+              View Pricing
+            </Link>
+          </div>
+        </FadeInSection>
       </section>
 
       {/* Footer Section */}

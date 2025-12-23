@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import React, { useState } from "react";
 import Link from "next/link";
 import DownloadButtons from "./DownloadButtons";
+import { FadeInSection } from "./FadeInSection";
 
 export default function HomePage() {
   const [testimonialsPaused, setTestimonialsPaused] = useState(false);
@@ -96,7 +97,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative h-full">
           <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-8 sm:gap-12 items-start relative h-full">
             {/* Left Column */}
-            <div className="z-10 text-[#1C1C1C] flex-1 w-full lg:w-auto lg:text-left text-center flex flex-col">
+            <FadeInSection className="z-10 text-[#1C1C1C] flex-1 w-full lg:w-auto lg:text-left text-center flex flex-col">
               <h1 className="font-normal mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-[60px] leading-tight lg:leading-[1.1]">
                 <span className="text-orange-500">AI-Powered</span> Chat
                 <br />
@@ -115,7 +116,7 @@ export default function HomePage() {
                 <Link
                   href="/features"
                   className="border-2 border-gray-300 text-gray-900 font-semibold rounded-lg 
-                       px-6 py-3 bg-white hover:bg-gray-50 transition-colors 
+                       px-6 py-3 bg-white hover:bg-gray-50 hover:-translate-y-0.5 transition 
                        text-base sm:text-lg text-center w-full"
                 >
                   Learn More
@@ -175,16 +176,19 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </FadeInSection>
 
             {/* RIGHT COLUMN */}
-            <div className="relative flex justify-center self-center lg:justify-end h-full flex-1 mb-4 sm:mb-0">
+            <FadeInSection
+              className="relative flex justify-center self-center lg:justify-end h-full flex-1 mb-4 sm:mb-0"
+              delay={120}
+            >
               <img
                 src="/hero-main.png"
                 alt="Happy user with BizChat"
                 className="w-full max-w-3xl h-[250px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-contain rounded-lg"
               />
-            </div>
+            </FadeInSection>
           </div>
         </div>
       </section>
@@ -192,87 +196,89 @@ export default function HomePage() {
       {/* Key Features Section */}
       <section className="bg-white py-24" id="features">
         <div className="max-w-6xl mx-auto px-4 pb-24">
-          <h2 className="text-4xl font-bold text-center mb-16 text-[#1C1C1C]">
-            Key Features
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-16">
-            {/* Feature 1 */}
-            <div className="flex items-start gap-6">
-              <div className="flex-shrink-0 w-24 h-24 rounded-full border-red-400 flex items-center justify-center">
-                <img
-                  src="/chatsupport.png"
-                  alt="Chat Support"
-                  className=" object-cover rounded-full"
-                />
-              </div>
-              <div>
-                <div className="font-bold text-2xl mb-1 text-[#1C1C1C]">
-                  Chat Support
+          <FadeInSection>
+            <h2 className="text-4xl font-bold text-center mb-16 text-[#1C1C1C]">
+              Key Features
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-16">
+              {/* Feature 1 */}
+              <div className="flex items-start gap-6 transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg rounded-xl">
+                <div className="flex-shrink-0 w-24 h-24 rounded-full border-red-400 flex items-center justify-center">
+                  <img
+                    src="/chatsupport.png"
+                    alt="Chat Support"
+                    className=" object-cover rounded-full"
+                  />
                 </div>
-                <div className="text-[#1C1C1C]">
-                  Talk to visitors in real-time and never miss a chance to
-                  engage.
+                <div>
+                  <div className="font-bold text-2xl mb-1 text-[#1C1C1C]">
+                    Chat Support
+                  </div>
+                  <div className="text-[#1C1C1C]">
+                    Talk to visitors in real-time and never miss a chance to
+                    engage.
+                  </div>
+                </div>
+              </div>
+              {/* Feature 2 */}
+              <div className="flex items-start gap-6 transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg rounded-xl">
+                <div className="flex-shrink-0 w-24 h-24 rounded-full border-red-400 flex items-center justify-center">
+                  <img
+                    src="/autotranslate.png"
+                    alt="Auto-Translation"
+                    className="object-cover rounded-full"
+                  />
+                </div>
+                <div>
+                  <div className="font-bold text-2xl mb-1 text-[#1C1C1C]">
+                    Auto-Translation
+                  </div>
+                  <div className="text-[#1C1C1C]">
+                    Break language barriers with instant multilingual chat
+                    support.
+                  </div>
+                </div>
+              </div>
+              {/* Feature 3 */}
+              <div className="flex items-start gap-6 transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg rounded-xl">
+                <div className="flex-shrink-0 w-24 h-24 rounded-full border-red-400 flex items-center justify-center">
+                  <img
+                    src="/webplugin.png"
+                    alt="Webchat plugin"
+                    className="object-cover rounded-full"
+                  />
+                </div>
+                <div>
+                  <div className="font-bold text-2xl mb-1 text-[#1C1C1C]">
+                    Webchat plugin
+                  </div>
+                  <div className="text-[#1C1C1C]">
+                    Talk to visitors in real-time and never miss a chance to
+                    engage.
+                  </div>
+                </div>
+              </div>
+              {/* Feature 4 */}
+              <div className="flex items-start gap-6 transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg rounded-xl">
+                <div className="flex-shrink-0 w-24 h-24 rounded-full border-red-400 flex items-center justify-center">
+                  <img
+                    src="/quickreply.png"
+                    alt="Quick Reply Suggestions"
+                    className="object-cover rounded-full"
+                  />
+                </div>
+                <div>
+                  <div className="font-bold text-2xl mb-1 text-[#1C1C1C]">
+                    Quick Reply Suggestions
+                  </div>
+                  <div className="text-[#1C1C1C]">
+                    Talk to visitors in real-time and never miss a chance to
+                    engage.
+                  </div>
                 </div>
               </div>
             </div>
-            {/* Feature 2 */}
-            <div className="flex items-start gap-6">
-              <div className="flex-shrink-0 w-24 h-24 rounded-full border-red-400 flex items-center justify-center">
-                <img
-                  src="/autotranslate.png"
-                  alt="Auto-Translation"
-                  className="object-cover rounded-full"
-                />
-              </div>
-              <div>
-                <div className="font-bold text-2xl mb-1 text-[#1C1C1C]">
-                  Auto-Translation
-                </div>
-                <div className="text-[#1C1C1C]">
-                  Break language barriers with instant multilingual chat
-                  support.
-                </div>
-              </div>
-            </div>
-            {/* Feature 3 */}
-            <div className="flex items-start gap-6">
-              <div className="flex-shrink-0 w-24 h-24 rounded-full border-red-400 flex items-center justify-center">
-                <img
-                  src="/webplugin.png"
-                  alt="Webchat plugin"
-                  className="object-cover rounded-full"
-                />
-              </div>
-              <div>
-                <div className="font-bold text-2xl mb-1 text-[#1C1C1C]">
-                  Webchat plugin
-                </div>
-                <div className="text-[#1C1C1C]">
-                  Talk to visitors in real-time and never miss a chance to
-                  engage.
-                </div>
-              </div>
-            </div>
-            {/* Feature 4 */}
-            <div className="flex items-start gap-6">
-              <div className="flex-shrink-0 w-24 h-24 rounded-full border-red-400 flex items-center justify-center">
-                <img
-                  src="/quickreply.png"
-                  alt="Quick Reply Suggestions"
-                  className="object-cover rounded-full"
-                />
-              </div>
-              <div>
-                <div className="font-bold text-2xl mb-1 text-[#1C1C1C]">
-                  Quick Reply Suggestions
-                </div>
-                <div className="text-[#1C1C1C]">
-                  Talk to visitors in real-time and never miss a chance to
-                  engage.
-                </div>
-              </div>
-            </div>
-          </div>
+          </FadeInSection>
         </div>
       </section>
 
@@ -310,76 +316,84 @@ export default function HomePage() {
         </div>
         {/* Right Text Content */}
         <div className="flex-1 lg:min-w-[60%] min-w-0 flex items-center justify-center px-6 sm:px-10 lg:px-16 h-full">
-          <div className="max-w-xl text-center lg:text-left">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight">
-              Designed for Simplicity.
-              <br />
-              <span className="text-orange-400">Powered by AI.</span>
-            </h2>
-            <p className="text-white text-base sm:text-lg mt-6 leading-relaxed">
-              BizChat makes customer support feel effortless, from setup to
-              daily use. With an intuitive interface, AI-powered suggestions,
-              and seamless integration, your team can start meaningful
-              conversations in minutes, not hours. Whether you're managing one
-              brand or many, BizChat keeps everything organized, fast, and
-              smart.
-            </p>
-          </div>
+          <FadeInSection>
+            <div className="max-w-xl text-center lg:text-left">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight">
+                Designed for Simplicity.
+                <br />
+                <span className="text-orange-400">Powered by AI.</span>
+              </h2>
+              <p className="text-white text-base sm:text-lg mt-6 leading-relaxed">
+                BizChat makes customer support feel effortless, from setup to
+                daily use. With an intuitive interface, AI-powered suggestions,
+                and seamless integration, your team can start meaningful
+                conversations in minutes, not hours. Whether you're managing one
+                brand or many, BizChat keeps everything organized, fast, and
+                smart.
+              </p>
+            </div>
+          </FadeInSection>
         </div>
       </section>
 
       {/* Stay Connected Section */}
       <section className="bg-white py-24">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-5xl font-bold text-center mb-6 text-[#1C1C1C]">
-            Stay Connected — Anywhere, Anytime
-          </h2>
-          <p className="text-center text-lg text-[#1C1C1C] mb-12 max-w-3xl mx-auto">
-            BizChat is designed to work flawlessly across all your devices.
-            Whether you're chatting with customers from your desktop at the
-            office or responding on-the-go from your phone, BizChat keeps you in
-            sync, no matter where business takes you.
-          </p>
+          <FadeInSection>
+            <h2 className="text-5xl font-bold text-center mb-6 text-[#1C1C1C]">
+              Stay Connected — Anywhere, Anytime
+            </h2>
+            <p className="text-center text-lg text-[#1C1C1C] mb-12 max-w-3xl mx-auto">
+              BizChat is designed to work flawlessly across all your devices.
+              Whether you're chatting with customers from your desktop at the
+              office or responding on-the-go from your phone, BizChat keeps you
+              in sync, no matter where business takes you.
+            </p>
+          </FadeInSection>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative">
             {/* Left Column */}
-            <div>
-              <h3 className="text-2xl font-bold text-center mb-6 text-[#1C1C1C]">
-                Full-featured Desktop Dashboard
-              </h3>
-              <img
-                src="/desktop-bizchat1.png"
-                alt="BizChat Desktop Dashboard"
-                className="w-full aspect-square max-w-[500px] mx-auto rounded-lg shadow-lg object-cover object-center transform scale-105 hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-            {/* Right Column */}
-            <div className="relative">
-              <h3 className="text-2xl font-bold text-center mb-6 text-[#1C1C1C]">
-                Responsive Mobile Experience
-              </h3>
-              <div className="grid grid-cols-2 gap-4 max-w-[500px] mx-auto transform scale-105 hover:scale-110 transition-transform duration-300">
+            <FadeInSection className="h-full">
+              <div>
+                <h3 className="text-2xl font-bold text-center mb-6 text-[#1C1C1C]">
+                  Full-featured Desktop Dashboard
+                </h3>
                 <img
-                  src="/image1.png"
-                  alt="BizChat Mobile Screenshot 1"
-                  className="w-full aspect-square rounded-lg shadow-lg object-cover"
-                />
-                <img
-                  src="/image2.png"
-                  alt="BizChat Mobile Screenshot 2"
-                  className="w-full aspect-square rounded-lg shadow-lg object-cover"
-                />
-                <img
-                  src="/image3.png"
-                  alt="BizChat Mobile Screenshot 3"
-                  className="w-full aspect-square rounded-lg shadow-lg object-cover"
-                />
-                <img
-                  src="/image4.png"
-                  alt="BizChat Mobile Screenshot 4"
-                  className="w-full aspect-square rounded-lg shadow-lg object-cover"
+                  src="/desktop-bizchat1.png"
+                  alt="BizChat Desktop Dashboard"
+                  className="w-full aspect-square max-w-[500px] mx-auto rounded-lg shadow-lg object-cover object-center transform scale-105 hover:scale-110 transition-transform duration-300"
                 />
               </div>
-            </div>
+            </FadeInSection>
+            {/* Right Column */}
+            <FadeInSection className="relative" delay={120}>
+              <div className="relative">
+                <h3 className="text-2xl font-bold text-center mb-6 text-[#1C1C1C]">
+                  Responsive Mobile Experience
+                </h3>
+                <div className="grid grid-cols-2 gap-4 max-w-[500px] mx-auto transform scale-105 hover:scale-110 transition-transform duration-300">
+                  <img
+                    src="/image1.png"
+                    alt="BizChat Mobile Screenshot 1"
+                    className="w-full aspect-square rounded-lg shadow-lg object-cover"
+                  />
+                  <img
+                    src="/image2.png"
+                    alt="BizChat Mobile Screenshot 2"
+                    className="w-full aspect-square rounded-lg shadow-lg object-cover"
+                  />
+                  <img
+                    src="/image3.png"
+                    alt="BizChat Mobile Screenshot 3"
+                    className="w-full aspect-square rounded-lg shadow-lg object-cover"
+                  />
+                  <img
+                    src="/image4.png"
+                    alt="BizChat Mobile Screenshot 4"
+                    className="w-full aspect-square rounded-lg shadow-lg object-cover"
+                  />
+                </div>
+              </div>
+            </FadeInSection>
           </div>
         </div>
       </section>
@@ -387,106 +401,110 @@ export default function HomePage() {
       {/* Testimonial Section */}
       <section className="bg-[#191919] py-24 w-full">
         <div>
-          <div className="flex items-center justify-between mb-12">
-            <h2 className="text-5xl font-bold text-white text-center w-full">
-              Trusted by Growing{" "}
-              <span className="text-orange-500">Businesses</span>
-            </h2>
-          </div>
-          <div className="overflow-x-hidden pb-4">
-            <div
-              className="flex gap-8 min-w-[900px] animate-testimonial-scroll px-8"
-              style={{
-                animationPlayState: testimonialsPaused ? "paused" : "running",
-              }}
-              onMouseEnter={() => setTestimonialsPaused(true)}
-              onMouseLeave={() => setTestimonialsPaused(false)}
-            >
-              {/* Testimonials with different customer images */}
-              {[
-                {
-                  name: "Sarah Johnson",
-                  title: "Marketing Director",
-                  company: "TechFlow Solutions",
-                  image: "/customer2.png",
-                  testimonial:
-                    "BizChat has revolutionized our customer engagement. Response times dropped by 80% and customer satisfaction scores increased dramatically. The AI responses are incredibly natural and helpful.",
-                },
-                {
-                  name: "Michael Chen",
-                  title: "CEO",
-                  company: "StartupHub Inc",
-                  image: "/customer3.png",
-                  testimonial:
-                    "As a growing startup, we needed a cost-effective solution that could scale with us. BizChat delivered exactly that - professional customer support without the overhead of a large team.",
-                },
-                {
-                  name: "Emily Rodriguez",
-                  title: "Customer Success Manager",
-                  company: "E-commerce Plus",
-                  image: "/user1.png",
-                  testimonial:
-                    "The multi-company feature is a game-changer for our business. We can manage customer support for all our brands from one dashboard. It's incredibly efficient and user-friendly.",
-                },
-                {
-                  name: "David Thompson",
-                  title: "Operations Director",
-                  company: "Global Retail Corp",
-                  image: "/customer2.png",
-                  testimonial:
-                    "Implementing BizChat was seamless. The integration took minutes, and our customers love the instant responses. Our support team can now focus on complex issues while routine queries are handled automatically.",
-                },
-                {
-                  name: "Lisa Park",
-                  title: "Founder",
-                  company: "Digital Agency Pro",
-                  image: "/customer3.png",
-                  testimonial:
-                    "The white-label solution is perfect for our agency. We can offer our clients branded chat support without any technical complexity. It's been a major selling point for our services.",
-                },
-                {
-                  name: "James Wilson",
-                  title: "IT Manager",
-                  company: "Healthcare Solutions",
-                  image: "/user1.png",
-                  testimonial:
-                    "Security and compliance were our top concerns. BizChat's enterprise features and data protection measures give us complete peace of mind while providing excellent patient support.",
-                },
-              ].map((testimonial, idx) => (
-                <div
-                  key={idx}
-                  className="flex flex-col items-center w-[370px] flex-shrink-0"
-                >
-                  <div className="relative bg-white rounded-xl p-8 w-full">
-                    <div className="absolute top-6 left-6 text-3xl text-orange-500 font-bold">
-                      &#8221;&#8221;
-                    </div>
-                    <div className="text-[#1C1C1C] text-left pt-8">
-                      {testimonial.testimonial}
-                    </div>
-                  </div>
-                  <div className="w-full flex justify-center h-0">
-                    <div className="w-0 h-0 border-x-12 border-x-transparent border-t-16 border-t-white"></div>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 mt-8">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full border-2 border-white object-cover"
-                    />
-                    <div className="font-semibold text-orange-500">
-                      {testimonial.name}
-                    </div>
-                    <div className="text-white text-sm">
-                      {testimonial.title}
-                    </div>
-                    <div className="text-white text-xs opacity-80">
-                      {testimonial.company}
-                    </div>
-                  </div>
-                </div>
-              ))}
+          <FadeInSection>
+            <div className="flex items-center justify-between mb-12">
+              <h2 className="text-5xl font-bold text-white text-center w-full">
+                Trusted by Growing{" "}
+                <span className="text-orange-500">Businesses</span>
+              </h2>
             </div>
+          </FadeInSection>
+          <div className="overflow-x-hidden pb-4">
+            <FadeInSection>
+              <div
+                className="flex gap-8 min-w-[900px] animate-testimonial-scroll px-8"
+                style={{
+                  animationPlayState: testimonialsPaused ? "paused" : "running",
+                }}
+                onMouseEnter={() => setTestimonialsPaused(true)}
+                onMouseLeave={() => setTestimonialsPaused(false)}
+              >
+                {/* Testimonials with different customer images */}
+                {[
+                  {
+                    name: "Sarah Johnson",
+                    title: "Marketing Director",
+                    company: "TechFlow Solutions",
+                    image: "/customer2.png",
+                    testimonial:
+                      "BizChat has revolutionized our customer engagement. Response times dropped by 80% and customer satisfaction scores increased dramatically. The AI responses are incredibly natural and helpful.",
+                  },
+                  {
+                    name: "Michael Chen",
+                    title: "CEO",
+                    company: "StartupHub Inc",
+                    image: "/customer3.png",
+                    testimonial:
+                      "As a growing startup, we needed a cost-effective solution that could scale with us. BizChat delivered exactly that - professional customer support without the overhead of a large team.",
+                  },
+                  {
+                    name: "Emily Rodriguez",
+                    title: "Customer Success Manager",
+                    company: "E-commerce Plus",
+                    image: "/user1.png",
+                    testimonial:
+                      "The multi-company feature is a game-changer for our business. We can manage customer support for all our brands from one dashboard. It's incredibly efficient and user-friendly.",
+                  },
+                  {
+                    name: "David Thompson",
+                    title: "Operations Director",
+                    company: "Global Retail Corp",
+                    image: "/customer2.png",
+                    testimonial:
+                      "Implementing BizChat was seamless. The integration took minutes, and our customers love the instant responses. Our support team can now focus on complex issues while routine queries are handled automatically.",
+                  },
+                  {
+                    name: "Lisa Park",
+                    title: "Founder",
+                    company: "Digital Agency Pro",
+                    image: "/customer3.png",
+                    testimonial:
+                      "The white-label solution is perfect for our agency. We can offer our clients branded chat support without any technical complexity. It's been a major selling point for our services.",
+                  },
+                  {
+                    name: "James Wilson",
+                    title: "IT Manager",
+                    company: "Healthcare Solutions",
+                    image: "/user1.png",
+                    testimonial:
+                      "Security and compliance were our top concerns. BizChat's enterprise features and data protection measures give us complete peace of mind while providing excellent patient support.",
+                  },
+                ].map((testimonial, idx) => (
+                  <div
+                    key={idx}
+                    className="flex flex-col items-center w-[370px] flex-shrink-0 hover:-translate-y-2 transition-transform duration-300"
+                  >
+                    <div className="relative bg-white rounded-xl p-8 w-full shadow-md">
+                      <div className="absolute top-6 left-6 text-3xl text-orange-500 font-bold">
+                        &#8221;&#8221;
+                      </div>
+                      <div className="text-[#1C1C1C] text-left pt-8">
+                        {testimonial.testimonial}
+                      </div>
+                    </div>
+                    <div className="w-full flex justify-center h-0">
+                      <div className="w-0 h-0 border-x-12 border-x-transparent border-t-16 border-t-white"></div>
+                    </div>
+                    <div className="flex flex-col items-center gap-2 mt-8">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-12 h-12 rounded-full border-2 border-white object-cover"
+                      />
+                      <div className="font-semibold text-orange-500">
+                        {testimonial.name}
+                      </div>
+                      <div className="text-white text-sm">
+                        {testimonial.title}
+                      </div>
+                      <div className="text-white text-xs opacity-80">
+                        {testimonial.company}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </FadeInSection>
           </div>
         </div>
       </section>
@@ -496,397 +514,411 @@ export default function HomePage() {
         className="bg-white py-24 w-full flex flex-col items-center"
         id="pricing"
       >
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-prata text-center mb-4 text-[#1C1C1C]">
-          Simple, Scalable Pricing for Every Stage
-        </h2>
-        <p className="text-center text-lg text-[#1C1C1C] mb-10 max-w-2xl">
-          Whether you're just getting started or managing support across
-          multiple brands, BizChat offers flexible plans that grow with your
-          business. No hidden fees. No complexity. Just powerful features at a
-          price that fits.
-        </p>
-        <div className="flex justify-center w-full mb-16">
-          <button
-            onClick={() => setShowPricingModal(true)}
-            className="compare-pricing-button bg-red-500 text-white font-semibold rounded-lg px-8 py-3 hover:bg-red-600 transition-colors text-lg"
-          >
-            Compare Pricing
-          </button>
-        </div>
+        <FadeInSection className="w-full flex flex-col items-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-prata text-center mb-4 text-[#1C1C1C]">
+            Simple, Scalable Pricing for Every Stage
+          </h2>
+          <p className="text-center text-lg text-[#1C1C1C] mb-10 max-w-2xl">
+            Whether you're just getting started or managing support across
+            multiple brands, BizChat offers flexible plans that grow with your
+            business. No hidden fees. No complexity. Just powerful features at a
+            price that fits.
+          </p>
+          <div className="flex justify-center w-full mb-16">
+            <button
+              onClick={() => setShowPricingModal(true)}
+              className="compare-pricing-button bg-red-500 text-white font-semibold rounded-lg px-8 py-3 hover:bg-red-600 hover:-translate-y-0.5 transition text-lg"
+            >
+              Compare Pricing
+            </button>
+          </div>
+        </FadeInSection>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center w-full max-w-6xl">
           {/* Free Card */}
-          <div className="flex-1 border-2 border-gray-400 rounded-xl p-8 bg-gradient-to-br from-green-50 to-green-100 relative min-w-[320px] max-w-[400px]">
-            <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-green-500 text-white px-6 py-1 rounded-full font-semibold text-sm">
-              Free
-            </div>
-            <div className="flex items-end mb-2 mt-6">
-              <span
-                className="text-5xl font-prata text-[#1C1C1C] mr-2"
-                style={{ fontFamily: "Prata, serif" }}
-              >
-                $
-              </span>
-              <span
-                className="text-5xl font-prata text-[#1C1C1C]"
-                style={{ fontFamily: "Prata, serif" }}
-              >
-                0
-              </span>
-              <span className="ml-2 text-gray-700 mb-1">forever</span>
-            </div>
-            <p className="text-[#1C1C1C] mb-4">
-              Perfect for getting started with basic features. Includes chat
-              messaging app account and web plugin to help you begin your
-              customer support journey.
-            </p>
-            <div className="space-y-3 mb-6">
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+          <FadeInSection className="flex-1" delay={60}>
+            <div className="flex-1 border-2 border-gray-400 rounded-xl p-8 bg-gradient-to-br from-green-50 to-green-100 relative min-w-[320px] max-w-[400px] transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
+              <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-green-500 text-white px-6 py-1 rounded-full font-semibold text-sm">
+                Free
+              </div>
+              <div className="flex items-end mb-2 mt-6">
+                <span
+                  className="text-5xl font-prata text-[#1C1C1C] mr-2"
+                  style={{ fontFamily: "Prata, serif" }}
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Chat messaging app account
+                  $
                 </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+                <span
+                  className="text-5xl font-prata text-[#1C1C1C]"
+                  style={{ fontFamily: "Prata, serif" }}
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">Web plugin</span>
+                  0
+                </span>
+                <span className="ml-2 text-gray-700 mb-1">forever</span>
+              </div>
+              <p className="text-[#1C1C1C] mb-4">
+                Perfect for getting started with basic features. Includes chat
+                messaging app account and web plugin to help you begin your
+                customer support journey.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Chat messaging app account
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">Web plugin</span>
+                </div>
               </div>
             </div>
-          </div>
+          </FadeInSection>
           {/* Base Subscription Card */}
-          <div className="flex-1 border-2 border-gray-400 rounded-xl p-8 bg-white relative min-w-[320px] max-w-[400px]">
-            <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-black text-white px-6 py-1 rounded-full font-semibold text-sm">
-              Base Subscription
+          <FadeInSection className="flex-1" delay={120}>
+            <div className="flex-1 border-2 border-gray-400 rounded-xl p-8 bg-white relative min-w-[320px] max-w-[400px] transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
+              <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-black text-white px-6 py-1 rounded-full font-semibold text-sm">
+                Base Subscription
+              </div>
+              <div className="flex items-end mb-2 mt-6">
+                <span
+                  className="text-5xl font-prata text-[#1C1C1C] mr-2"
+                  style={{ fontFamily: "Prata, serif" }}
+                >
+                  $
+                </span>
+                <span
+                  className="text-5xl font-prata text-[#1C1C1C]"
+                  style={{ fontFamily: "Prata, serif" }}
+                >
+                  25
+                </span>
+                <span className="ml-2 text-gray-700 mb-1">per month</span>
+              </div>
+              <p className="text-[#1C1C1C] mb-4">
+                Perfect for single company with full features. Includes all the
+                essential tools you need for comprehensive customer support.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Chat messaging app account
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">Web plugin</span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Auto translate chat messages
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Ticketing system
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Emailing functionality
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Single company support
+                  </span>
+                </div>
+              </div>
             </div>
-            <div className="flex items-end mb-2 mt-6">
-              <span
-                className="text-5xl font-prata text-[#1C1C1C] mr-2"
-                style={{ fontFamily: "Prata, serif" }}
-              >
-                $
-              </span>
-              <span
-                className="text-5xl font-prata text-[#1C1C1C]"
-                style={{ fontFamily: "Prata, serif" }}
-              >
-                25
-              </span>
-              <span className="ml-2 text-gray-700 mb-1">per month</span>
-            </div>
-            <p className="text-[#1C1C1C] mb-4">
-              Perfect for single company with full features. Includes all the
-              essential tools you need for comprehensive customer support.
-            </p>
-            <div className="space-y-3 mb-6">
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Chat messaging app account
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">Web plugin</span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Auto translate chat messages
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">Ticketing system</span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Emailing functionality
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Single company support
-                </span>
-              </div>
-            </div>
-          </div>
+          </FadeInSection>
           {/* White Label Card */}
-          <div className="flex-1 border-2 border-orange-400 rounded-xl p-8 bg-white relative min-w-[320px] max-w-[400px]">
-            <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-6 py-1 rounded-full font-semibold text-sm">
-              Most Popular
+          <FadeInSection className="flex-1" delay={180}>
+            <div className="flex-1 border-2 border-orange-400 rounded-xl p-8 bg-white relative min-w-[320px] max-w-[400px] transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
+              <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-6 py-1 rounded-full font-semibold text-sm">
+                Most Popular
+              </div>
+              <div className="flex items-end mb-2 mt-6">
+                <span
+                  className="text-5xl font-prata text-[#1C1C1C] mr-2"
+                  style={{ fontFamily: "Prata, serif" }}
+                >
+                  $
+                </span>
+                <span
+                  className="text-5xl font-prata text-[#1C1C1C]"
+                  style={{ fontFamily: "Prata, serif" }}
+                >
+                  55
+                </span>
+                <span className="ml-2 text-gray-700 mb-1">per month</span>
+              </div>
+              <p className="text-[#1C1C1C] mb-4">
+                Same features as base with white label branding. Perfect for
+                businesses that want to maintain their own brand identity.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Chat messaging app account
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">Web plugin</span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Auto translate chat messages
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Ticketing system
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Emailing functionality
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    White label branding
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Custom branding options
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Remove BizChat branding
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Custom domain support
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Single company support
+                  </span>
+                </div>
+              </div>
             </div>
-            <div className="flex items-end mb-2 mt-6">
-              <span
-                className="text-5xl font-prata text-[#1C1C1C] mr-2"
-                style={{ fontFamily: "Prata, serif" }}
-              >
-                $
-              </span>
-              <span
-                className="text-5xl font-prata text-[#1C1C1C]"
-                style={{ fontFamily: "Prata, serif" }}
-              >
-                55
-              </span>
-              <span className="ml-2 text-gray-700 mb-1">per month</span>
-            </div>
-            <p className="text-[#1C1C1C] mb-4">
-              Same features as base with white label branding. Perfect for
-              businesses that want to maintain their own brand identity.
-            </p>
-            <div className="space-y-3 mb-6">
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Chat messaging app account
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">Web plugin</span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Auto translate chat messages
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">Ticketing system</span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Emailing functionality
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  White label branding
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Custom branding options
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Remove BizChat branding
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Custom domain support
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Single company support
-                </span>
-              </div>
-            </div>
-          </div>
+          </FadeInSection>
         </div>
       </section>
 
       {/* CTA Section: Start Chatting Smarter Today */}
       <section className="bg-white py-24 w-full flex flex-col items-center">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6 text-[#1C1C1C]">
-          Start Chatting Smarter Today
-        </h2>
-        <p className="text-center text-lg text-[#1C1C1C] max-w-3xl">
-          Boost your support, connect with customers, and simplify communication
-          — all in one AI-powered platform. It takes just minutes to get
-          started.
-        </p>
+        <FadeInSection className="flex flex-col items-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6 text-[#1C1C1C]">
+            Start Chatting Smarter Today
+          </h2>
+          <p className="text-center text-lg text-[#1C1C1C] max-w-3xl">
+            Boost your support, connect with customers, and simplify
+            communication — all in one AI-powered platform. It takes just
+            minutes to get started.
+          </p>
+        </FadeInSection>
       </section>
 
       {/* Footer Section */}

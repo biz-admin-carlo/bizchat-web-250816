@@ -2,6 +2,7 @@
 import Navbar from "../components/Navbar";
 import { useState } from "react";
 import Link from "next/link";
+import { FadeInSection } from "../components/FadeInSection";
 
 export default function PricingPage() {
   const [showPricingModal, setShowPricingModal] = useState(false);
@@ -109,405 +110,421 @@ export default function PricingPage() {
       <div className="h-16" />
       <section className="w-full flex flex-col items-center pb-24 px-4 md:px-12 lg:px-0">
         <div className="w-full bg-[#191919] py-14 px-4 flex flex-col items-center justify-center mb-20">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-center mb-4">
-            <span className="text-orange-500">Simple,</span>{" "}
-            <span className="text-red-500">Transparent Pricing</span>
-          </h1>
-          <p className="text-center text-white text-lg max-w-2xl">
-            Choose the plan that fits your business needs. No hidden fees, no
-            surprises — just powerful features at a fair price.
-          </p>
+          <FadeInSection>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-center mb-4">
+              <span className="text-orange-500">Simple,</span>{" "}
+              <span className="text-red-500">Transparent Pricing</span>
+            </h1>
+          </FadeInSection>
+          <FadeInSection delay={120}>
+            <p className="text-center text-white text-lg max-w-2xl">
+              Choose the plan that fits your business needs. No hidden fees, no
+              surprises — just powerful features at a fair price.
+            </p>
+          </FadeInSection>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center w-full max-w-6xl mb-20">
           {/* Free Card */}
-          <div className="flex-1 border-2 border-gray-400 rounded-xl p-8 bg-gradient-to-br from-green-50 to-green-100 relative min-w-[320px] max-w-[400px]">
-            <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-green-500 text-white px-6 py-1 rounded-full font-semibold text-sm">
-              Free
-            </div>
-            <div className="flex items-end mb-2 mt-6">
-              <span
-                className="text-5xl font-prata text-[#1C1C1C] mr-2"
-                style={{ fontFamily: "Prata, serif" }}
-              >
-                $
-              </span>
-              <span
-                className="text-5xl font-prata text-[#1C1C1C]"
-                style={{ fontFamily: "Prata, serif" }}
-              >
-                0
-              </span>
-              <span className="ml-2 text-gray-700 mb-1">forever</span>
-            </div>
-            <p className="text-[#1C1C1C] mb-4">
-              Perfect for getting started with basic features. Includes chat
-              messaging app account and web plugin to help you begin your
-              customer support journey.
-            </p>
-            <div className="space-y-3 mb-6">
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+          <FadeInSection className="flex-1" delay={40}>
+            <div className="flex-1 border-2 border-gray-400 rounded-xl p-8 bg-gradient-to-br from-green-50 to-green-100 relative w-full transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
+              <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-green-500 text-white px-6 py-1 rounded-full font-semibold text-sm">
+                Free
+              </div>
+              <div className="flex items-end mb-2 mt-6">
+                <span
+                  className="text-5xl font-prata text-[#1C1C1C] mr-2"
+                  style={{ fontFamily: "Prata, serif" }}
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Chat messaging app account
+                  $
                 </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+                <span
+                  className="text-5xl font-prata text-[#1C1C1C]"
+                  style={{ fontFamily: "Prata, serif" }}
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">Web plugin</span>
+                  0
+                </span>
+                <span className="ml-2 text-gray-700 mb-1">forever</span>
               </div>
+              <p className="text-[#1C1C1C] mb-4">
+                Perfect for getting started with basic features. Includes chat
+                messaging app account and web plugin to help you begin your
+                customer support journey.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Chat messaging app account
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">Web plugin</span>
+                </div>
+              </div>
+              <button className="w-full compare-pricing-button bg-green-500 text-white font-semibold rounded-lg px-8 py-3 mt-4 hover:bg-green-600 hover:-translate-y-0.5 transition text-lg">
+                Get Started Free
+              </button>
             </div>
-            <button className="w-full bg-green-500 text-white font-semibold rounded-lg px-8 py-3 mt-4 hover:bg-green-600 transition-colors text-lg">
-              Get Started Free
-            </button>
-          </div>
+          </FadeInSection>
           {/* Base Subscription Card */}
-          <div className="flex-1 border-2 border-gray-400 rounded-xl p-8 bg-white relative min-w-[320px] max-w-[400px]">
-            <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-black text-white px-6 py-1 rounded-full font-semibold text-sm">
-              Base Subscription
+          <FadeInSection className="flex-1" delay={80}>
+            <div className="flex-1 border-2 border-gray-400 rounded-xl p-8 bg-white relative w-full transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
+              <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-black text-white px-6 py-1 rounded-full font-semibold text-sm">
+                Base Subscription
+              </div>
+              <div className="flex items-end mb-2 mt-6">
+                <span
+                  className="text-5xl font-prata text-[#1C1C1C] mr-2"
+                  style={{ fontFamily: "Prata, serif" }}
+                >
+                  $
+                </span>
+                <span
+                  className="text-5xl font-prata text-[#1C1C1C]"
+                  style={{ fontFamily: "Prata, serif" }}
+                >
+                  25
+                </span>
+                <span className="ml-2 text-gray-700 mb-1">per month</span>
+              </div>
+              <p className="text-[#1C1C1C] mb-4">
+                Perfect for single company with full features. Includes all the
+                essential tools you need for comprehensive customer support.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Chat messaging app account
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">Web plugin</span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Auto translate chat messages
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Ticketing system
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Emailing functionality
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Single company support
+                  </span>
+                </div>
+              </div>
+              <button className="w-full compare-pricing-button bg-red-500 text-white font-semibold rounded-lg px-8 py-3 mt-4 hover:bg-red-600 hover:-translate-y-0.5 transition text-lg">
+                Get Started
+              </button>
             </div>
-            <div className="flex items-end mb-2 mt-6">
-              <span
-                className="text-5xl font-prata text-[#1C1C1C] mr-2"
-                style={{ fontFamily: "Prata, serif" }}
-              >
-                $
-              </span>
-              <span
-                className="text-5xl font-prata text-[#1C1C1C]"
-                style={{ fontFamily: "Prata, serif" }}
-              >
-                25
-              </span>
-              <span className="ml-2 text-gray-700 mb-1">per month</span>
-            </div>
-            <p className="text-[#1C1C1C] mb-4">
-              Perfect for single company with full features. Includes all the
-              essential tools you need for comprehensive customer support.
-            </p>
-            <div className="space-y-3 mb-6">
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Chat messaging app account
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">Web plugin</span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Auto translate chat messages
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">Ticketing system</span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Emailing functionality
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Single company support
-                </span>
-              </div>
-            </div>
-            <button className="w-full bg-red-500 text-white font-semibold rounded-lg px-8 py-3 mt-4 hover:bg-red-600 transition-colors text-lg">
-              Get Started
-            </button>
-          </div>
+          </FadeInSection>
           {/* White Label Card */}
-          <div className="flex-1 border-2 border-orange-400 rounded-xl p-8 bg-white relative min-w-[320px] max-w-[400px]">
-            <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-6 py-1 rounded-full font-semibold text-sm">
-              Most Popular
+          <FadeInSection className="flex-1" delay={120}>
+            <div className="flex-1 border-2 border-orange-400 rounded-xl p-8 bg-white relative w-full transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
+              <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-6 py-1 rounded-full font-semibold text-sm">
+                Most Popular
+              </div>
+              <div className="flex items-end mb-2 mt-6">
+                <span
+                  className="text-5xl font-prata text-[#1C1C1C] mr-2"
+                  style={{ fontFamily: "Prata, serif" }}
+                >
+                  $
+                </span>
+                <span
+                  className="text-5xl font-prata text-[#1C1C1C]"
+                  style={{ fontFamily: "Prata, serif" }}
+                >
+                  55
+                </span>
+                <span className="ml-2 text-gray-700 mb-1">per month</span>
+              </div>
+              <p className="text-[#1C1C1C] mb-4">
+                Same features as base with white label branding. Perfect for
+                businesses that want to maintain their own brand identity.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Chat messaging app account
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">Web plugin</span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Auto translate chat messages
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Ticketing system
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Emailing functionality
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    White label branding
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Custom branding options
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Remove BizChat branding
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Custom domain support
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <svg
+                    className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span className="text-gray-700 text-sm">
+                    Single company support
+                  </span>
+                </div>
+              </div>
+              <button className="w-full compare-pricing-button bg-orange-500 text-white font-semibold rounded-lg px-8 py-3 mt-4 hover:bg-orange-600 hover:-translate-y-0.5 transition text-lg">
+                Get Started
+              </button>
             </div>
-            <div className="flex items-end mb-2 mt-6">
-              <span
-                className="text-5xl font-prata text-[#1C1C1C] mr-2"
-                style={{ fontFamily: "Prata, serif" }}
-              >
-                $
-              </span>
-              <span
-                className="text-5xl font-prata text-[#1C1C1C]"
-                style={{ fontFamily: "Prata, serif" }}
-              >
-                55
-              </span>
-              <span className="ml-2 text-gray-700 mb-1">per month</span>
-            </div>
-            <p className="text-[#1C1C1C] mb-4">
-              Same features as base with white label branding. Perfect for
-              businesses that want to maintain their own brand identity.
-            </p>
-            <div className="space-y-3 mb-6">
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Chat messaging app account
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">Web plugin</span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Auto translate chat messages
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">Ticketing system</span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Emailing functionality
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  White label branding
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Custom branding options
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Remove BizChat branding
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Custom domain support
-                </span>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 text-sm">
-                  Single company support
-                </span>
-              </div>
-            </div>
-            <button className="w-full bg-orange-500 text-white font-semibold rounded-lg px-8 py-3 mt-4 hover:bg-orange-600 transition-colors text-lg">
-              Get Started
-            </button>
-          </div>
+          </FadeInSection>
         </div>
         <button
           onClick={() => setShowPricingModal(true)}
-          className="bg-red-500 text-white font-semibold rounded-lg px-8 py-3 hover:bg-red-600 transition-colors text-lg mb-20"
+          className="compare-pricing-button bg-red-500 text-white font-semibold rounded-lg px-8 py-3 hover:bg-red-600 hover:-translate-y-0.5 transition text-lg mb-20"
         >
           Compare All Features
         </button>
 
         {/* FAQ Section */}
-        <div className="w-full max-w-4xl mx-auto mt-8 mb-20">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-[#191919]">
-            Common Questions About Our Plans
-          </h2>
+        <section id="faqs" className="w-full max-w-4xl mx-auto mt-8 mb-20">
+          <FadeInSection>
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-[#191919]">
+              Common Questions About Our Plans
+            </h2>
+          </FadeInSection>
           <div className="divide-y divide-gray-200">
             {faqData.map((item, idx) => {
               const open = openIndexes[idx];
               return (
                 <div key={item.q}>
                   <button
-                    className="w-full flex items-center justify-between py-5 text-left font-semibold text-lg text-[#191919] focus:outline-none"
+                    className="faq-button w-full flex items-center justify-between py-5 text-left font-semibold text-lg text-[#191919] focus:outline-none"
                     onClick={() =>
                       setOpenIndexes((prev) =>
                         prev.map((v, i) => (i === idx ? !v : v))
@@ -536,37 +553,42 @@ export default function PricingPage() {
                   <div
                     id={`faq-panel-${idx}`}
                     className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                      open ? "max-h-40 pb-5" : "max-h-0"
+                      open ? "max-h-96 pb-5" : "max-h-0"
                     } text-[#333] text-base`}
-                    style={{}}
                   >
-                    <div className={open ? "opacity-100" : "opacity-0"}>
-                      {item.a}
-                    </div>
+                    <FadeInSection delay={80}>
+                      <div className={open ? "opacity-100" : "opacity-0"}>
+                        {item.a}
+                      </div>
+                    </FadeInSection>
                   </div>
                 </div>
               );
             })}
           </div>
-        </div>
+        </section>
 
         {/* Help Choosing Plan Section */}
         <section className="w-full flex flex-col items-center justify-center py-20 px-4 mb-8">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-6 text-[#191919]">
-            Need Help Choosing the Right Plan?
-          </h2>
-          <p className="text-center text-lg text-[#1C1C1C] mb-10 max-w-2xl">
-            Not sure which BizChat plan fits your business best? We’re here to
-            help you make the right choice.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center gap-4">
-            <button className="border-2 border-red-500 text-[#191919] font-semibold rounded-lg px-8 py-3 bg-white hover:bg-red-50 transition-colors text-lg mb-2 sm:mb-0">
+          <FadeInSection>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-6 text-[#191919]">
+              Need Help Choosing the Right Plan?
+            </h2>
+          </FadeInSection>
+          <FadeInSection delay={120}>
+            <p className="text-center text-lg text-[#1C1C1C] mb-10 max-w-2xl">
+              Not sure which BizChat plan fits your business best? We’re here to
+              help you make the right choice.
+            </p>
+          </FadeInSection>
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-md">
+            <button className="w-full contact-page-button border-2 border-red-500 text-[#191919] font-semibold rounded-lg px-8 py-3 bg-white hover:bg-red-50 hover:-translate-y-0.5 transition text-lg mb-2 sm:mb-0">
               Request a Demo
             </button>
             <span className="mx-2 font-bold text-[#191919]">OR</span>
             <Link
               href="/contact"
-              className="bg-red-500 text-white font-semibold rounded-lg px-8 py-3 hover:bg-red-600 transition-colors text-lg text-center"
+              className="w-full sm:w-auto contact-us-button bg-red-500 text-white font-semibold rounded-lg px-8 py-3 hover:bg-red-600 hover:-translate-y-0.5 transition text-lg text-center"
             >
               Contact US
             </Link>

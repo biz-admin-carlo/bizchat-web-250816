@@ -5,28 +5,179 @@ import { useState } from "react";
 export default function FaqsPage() {
   const faqCategories = [
     {
-      title: "Getting Started",
-      questions: ["Question?", "Question?", "Question?", "Question?"],
+      title: "Get Started",
+      questions: [
+        {
+          question: "What is BizChat?",
+          answer:
+            "BizChat is a customer service chat tool that allows businesses to communicate with website visitors in real time using mobile, web, or desktop apps.",
+        },
+        {
+          question: "How do I add BizChat to my website?",
+          answer:
+            "Simply copy and paste a small JavaScript snippet into your website’s HTML, and BizChat will start working immediately.",
+        },
+        {
+          question: "Do I need technical skills to use BizChat?",
+          answer:
+            "No. BizChat is designed to be user-friendly and requires no coding knowledge beyond adding the initial script.",
+        },
+        {
+          question: "Can I use BizChat on multiple websites?",
+          answer:
+            "Yes, depending on your plan, you can connect BizChat to one or multiple websites from a single dashboard.",
+        },
+        {
+          question: "How long does setup take?",
+          answer: "Most users complete setup in under 5 minutes.",
+        },
+      ],
     },
     {
       title: "Features & Functionality",
-      questions: ["Question?", "Question?"],
+      questions: [
+        {
+          question: "What devices can I use to reply to messages?",
+          answer:
+            "You can respond to customers using mobile, web, or desktop—switch seamlessly between devices.",
+        },
+        {
+          question: "Does BizChat support multiple agents?",
+          answer:
+            "Yes. You can add multiple team members and assign conversations to specific agents.",
+        },
+        {
+          question: "Can I see visitors before they send a message?",
+          answer:
+            "Yes, BizChat shows real-time visitor activity so you can proactively engage users.",
+        },
+        {
+          question: "Does BizChat save chat history?",
+          answer:
+            "All conversations are securely stored and accessible anytime from your dashboard.",
+        },
+        // {
+        //   question: "Can I customize the chat widget?",
+        //   answer:
+        //     "Absolutely. You can customize colors, greetings, and branding to match your website.",
+        // },
+      ],
     },
     {
       title: "Plans & Billing",
-      questions: ["Question?", "Question?", "Question?"],
+      questions: [
+        {
+          question: "Is there a free plan available?",
+          answer:
+            "Yes, BizChat offers a free plan with essential features to get you started.",
+        },
+        {
+          question: "How does billing work?",
+          answer:
+            "Billing is monthly or annually, depending on the plan you choose.",
+        },
+        {
+          question: "Can I upgrade or downgrade my plan anytime?",
+          answer:
+            "Yes, you can change your plan at any time from your account settings.",
+        },
+        {
+          question: "Are there any hidden fees?",
+          answer:
+            "No. All pricing is transparent, with no setup or cancellation fees.",
+        },
+        {
+          question: "What payment methods are accepted?",
+          answer:
+            "We accept major credit/debit cards and selected online payment methods.",
+        },
+      ],
     },
     {
       title: "Technical Questions",
-      questions: ["Question?", "Question?"],
+      questions: [
+        {
+          question: "Will BizChat slow down my website?",
+          answer: "No. BizChat is lightweight and optimized for performance.",
+        },
+        {
+          question:
+            "Is BizChat compatible with WordPress, Shopify, or custom websites?",
+          answer:
+            "Yes, BizChat works with most platforms as long as you can insert a script.",
+        },
+        {
+          question: "Does BizChat work on mobile websites?",
+          answer:
+            "Yes, the chat widget is fully responsive and mobile-friendly.",
+        },
+        {
+          question: "Can I integrate BizChat with other tools?",
+          answer:
+            "Integrations are available or coming soon for CRMs, email tools, and more.",
+        },
+        {
+          question: "What happens if my internet connection drops?",
+          answer:
+            "Messages are synced automatically once your connection is restored.",
+        },
+      ],
     },
     {
       title: "Support & Assistance",
-      questions: ["Question?", "Question?", "Question?"],
+      questions: [
+        {
+          question: "How can I contact BizChat support?",
+          answer:
+            "You can reach us via live chat, email, or our support portal.",
+        },
+        {
+          question: "What are your support hours?",
+          answer:
+            "Support is available during business hours, with extended coverage on higher plans.",
+        },
+        {
+          question: "Do you provide onboarding assistance?",
+          answer:
+            "Yes, we offer setup guides, tutorials, and onboarding support.",
+        },
+        {
+          question: "Is there a help center or knowledge base?",
+          answer: "Yes, our Help Center includes step-by-step guides and FAQs.",
+        },
+        {
+          question: "Can I request a feature?",
+          answer: "Absolutely! We welcome feature requests and user feedback.",
+        },
+      ],
     },
     {
       title: "Security & Privacy",
-      questions: ["Question?", "Question?", "Question?"],
+      questions: [
+        {
+          question: "Is my data secure with BizChat?",
+          answer:
+            "Yes. We use industry-standard security practices to protect your data.",
+        },
+        {
+          question: "Are chat messages encrypted?",
+          answer: "All data is encrypted in transit using secure protocols.",
+        },
+        {
+          question: "Who owns the chat data?",
+          answer:
+            "You own all customer conversation data. BizChat does not sell or share your data.",
+        },
+        {
+          question: "Is BizChat compliant with data privacy regulations?",
+          answer:
+            "Yes, BizChat follows common data protection standards and best practices.",
+        },
+        {
+          question: "Can I delete my data if I stop using BizChat?",
+          answer: "Yes. You can request full data deletion at any time.",
+        },
+      ],
     },
   ];
   // Track open state for each question in each category
@@ -92,12 +243,12 @@ export default function FaqsPage() {
                 </h2>
               </div>
               <div className="divide-y divide-gray-200">
-                {cat.questions.map((q, qIdx) => {
+                {cat.questions.map((qa, qIdx) => {
                   const open = openIndexes[catIdx][qIdx];
                   return (
-                    <div key={qIdx}>
+                    <div key={qa.question}>
                       <button
-                        className="w-full flex items-center justify-between py-5 text-left font-semibold text-base md:text-lg text-[#191919] focus:outline-none"
+                        className="faq-button w-full flex items-center justify-between py-5 text-left font-semibold text-base md:text-lg text-[#191919] focus:outline-none"
                         onClick={() =>
                           setOpenIndexes((prev) =>
                             prev.map((arr, i) =>
@@ -110,7 +261,7 @@ export default function FaqsPage() {
                         aria-expanded={open}
                         aria-controls={`faq-panel-${catIdx}-${qIdx}`}
                       >
-                        {q}
+                        {qa.question}
                         <svg
                           className={`w-6 h-6 transition-transform ${
                             open ? "rotate-180" : "rotate-0"
@@ -130,11 +281,11 @@ export default function FaqsPage() {
                       <div
                         id={`faq-panel-${catIdx}-${qIdx}`}
                         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                          open ? "max-h-40 pb-5" : "max-h-0"
+                          open ? "max-h-96 pb-5" : "max-h-0"
                         } text-[#333] text-base`}
                       >
                         <div className={open ? "opacity-100" : "opacity-0"}>
-                          {/* Placeholder answer */}
+                          {qa.answer}
                         </div>
                       </div>
                     </div>
