@@ -83,6 +83,16 @@ body {
   min-width: auto !important;
 }
 
+/* Exempt primary form submit buttons (e.g., registration forms) from chat widget's 40px width restriction */
+.primary-form-button {
+  width: 100% !important;
+  height: auto !important;
+  bottom: auto !important;
+  right: auto !important;
+  position: relative !important;
+  min-width: auto !important;
+}
+
 /* Exempt mobile nav buttons (Logout, Manage Team, Login) from chat widget's 40px width restriction */
 .nav-mobile-button {
   width: auto !important;
